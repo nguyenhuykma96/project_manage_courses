@@ -38,8 +38,6 @@ export const actRegisterUserRequest = user => {
 }
 // login
 export const actLoginUser = (user) => {
-    console.log(user);
-    
     return {
         type: Types.LOGIN,
         user
@@ -62,7 +60,7 @@ export const actLoginUserRequest = (user) => {
                         type: 'success',
                         title: 'Welcome to CyberSoft'
                     })
-                    sessionStorage.setItem('UserLogin', JSON.stringify(res.data[0]));
+                    localStorage.setItem('UserLogin', JSON.stringify(res.data[0]));
 
                 } else {
                     console.log('err');

@@ -4,7 +4,6 @@ import Login from '../../components/Login/Login';
 
 class LoginPage extends Component {
     render() {
-        // check auth owr day
         return (
             <Route render={ (props) =>  <Login {...props} />} />
         );

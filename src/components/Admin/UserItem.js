@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { actDeleteUserRequest, actGetUserEditing, actUpdateUserRequest, actChangeEditStatusTrue,  } from '../../store/action/user.action';
+import {
+    actDeleteUserRequest,
+    actGetUserEditing,
+    actUpdateUserRequest,
+    actChangeEditStatusTrue,
+} from '../../store/action/user.action';
+import { actGetRegistedCourseRequest } from '../../store/action/course.action';
 
 class UserItem extends Component {
     onDeleteUser = (taiKhoan) => {
         this.props.deleteUser(taiKhoan)
     }
-    onSaveUserEditing = () => {
+    onSaveUserEditing = (account) => {
         this.props.changeEditStatus()
         this.props.userEditing(this.props.user);
-       
-        
+        var userRegistedCourse = {
+            TaiKhoan: account,
+        }
+        this.props.onGetRegistedCourse(userRegistedCourse);
+
+
     }
     render() {
         var { user, index } = this.props
@@ -28,11 +38,11 @@ class UserItem extends Component {
                         onClick={this.onDeleteUser.bind(this, user.TaiKhoan)}
                         style={{ cursor: 'pointer' }}>
                     </i>
-                    <i  className="far fa-edit"
-                        style={{ cursor: 'pointer' }} 
+                    <i className="far fa-edit"
+                        style={{ cursor: 'pointer' }}
                         data-toggle="modal"
                         data-target="#action_user"
-                        onClick={this.onSaveUserEditing}>
+                        onClick={this.onSaveUserEditing.bind(this, user.TaiKhoan)}>
                     </i>
                 </td>
             </tr>
@@ -48,14 +58,17 @@ const mapDispatchToProps = dispatch => {
         deleteUser: (taiKhoan) => {
             dispatch(actDeleteUserRequest(taiKhoan));
         },
-        userEditing : (userEditing) => {
+        userEditing: (userEditing) => {
             dispatch(actGetUserEditing(userEditing));
         },
-        userUpdate : (user) => {
+        userUpdate: (user) => {
             dispatch(actUpdateUserRequest(user));
         },
-        changeEditStatus : () => {
+        changeEditStatus: () => {
             dispatch(actChangeEditStatusTrue());
+        },
+        onGetRegistedCourse: (userRegistedCourse) => {
+            dispatch(actGetRegistedCourseRequest(userRegistedCourse));
         }
     }
 }

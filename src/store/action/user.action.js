@@ -1,10 +1,6 @@
 import * as Types from './../constants/ActionTypes';
 import UserService from '../../services/user.services';
 import Swal from 'sweetalert2';
-import { resolve } from 'url';
-import { reject } from 'q';
-
-
 
 const userService = new UserService();
 export const actAddUser = (user) => {
@@ -17,6 +13,8 @@ export const actAddUserRequest = (user) => {
     return dispatch => {
         return userService.addUser(user)
             .then(res => {
+                console.log(res);
+                
                 dispatch(actAddUser(res.data));
                 if (typeof (res.data) === 'string') {
                     Swal.fire({
@@ -48,6 +46,8 @@ export const actGetAllUsersRequest = () => {
     return dispatch => {
         return userService.getAllUsers()
             .then(res => {
+                // console.log(res);
+                
                 dispatch(actGetAllUsers(res.data));
             })
             .catch(err => {
@@ -100,45 +100,7 @@ export const actDeleteUserRequest = taiKhoan => {
         })
 
     }
-
-
 }
-// export const actDeleteUserRequest = taiKhoan => {
-//     Swal.fire({
-//         title: 'Are you sure?',
-//         type: 'warning',
-//         showCancelButton: true,
-//         confirmButtonColor: '#3085d6',
-//         cancelButtonColor: '#d33',
-//         confirmButtonText: 'Yes, delete it!',
-//     }).then(() => {
-//         return dispatch => {
-//             return userService.deleteUser(taiKhoan)
-//                 .then(res => {
-//                     dispatch(actDeleteUser(taiKhoan));
-//                     Swal.fire(
-//                         'Deleted!',
-//                         'User select has been deleted.',
-//                         'success'
-//                     )
-//                 })
-//                 .catch(err => {
-//                     console.log(err);
-
-//                 })
-//         }
-//     }, (dismiss) => {
-//         if (dismiss == 'cancel') {
-
-//             Swal.fire({
-//                 type: 'error',
-//                 title: 'Fail...',
-//                 text: 'Deleted Fail',
-//             })
-//         }
-//     })
-
-// }
 export const actGetUserEditing = userEditing => {
     return {
         type: Types.EDIT_USER,
@@ -157,15 +119,13 @@ export const actUpdateUserRequest = user => {
             .then(res => {
                 console.log(res.data);
                 dispatch(actUpdateUser(res.data));
-
             })
             .catch(err => {
                 console.log(err);
-
             })
     }
 }
-// edit status update user
+// edit status update 
 export const actChangeEditStatus = () => {
     return {
         type: Types.CHANGE_EDIT_STATUS,

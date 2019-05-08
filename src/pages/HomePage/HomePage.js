@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+// import { Redirect } from 'react-router-dom';
 import CoursesContainer from './../../containers/Home/Courses';
 
 class HomePage extends Component {
     render() {
+        
         return (
             <div>
                 {/* Preloader */}
@@ -45,7 +47,7 @@ class HomePage extends Component {
                             <div className="col-12 col-sm-6 col-lg-3">
                                 <div className="single-cool-facts-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
                                     <div className="icon">
-                                        <img src="img/core-img/star.png"/>
+                                        <img src="img/core-img/star.png" />
                                     </div>
                                     <h2><span className="counter">123</span></h2>
                                     <h5>Dedicated Tutors</h5>
@@ -76,7 +78,7 @@ class HomePage extends Component {
                 </section>
                 {/* ##### Cool Facts Area End ##### */}
                 {/* ##### Popular Courses Start ##### */}
-                <CoursesContainer/>
+                <CoursesContainer />
                 {/* ##### Popular Courses End ##### */}
                 {/* ##### Best Tutors Start ##### */}
                 <section className="best-tutors-area section-padding-100">

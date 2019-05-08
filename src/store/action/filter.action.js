@@ -6,6 +6,12 @@ export  const actFilterUser = (filter) => {
         filter
     }
 }
+export  const actFilterCourse = (filter) => {
+    return {
+        type : Types.FILTER_COURSE,
+        filter
+    }
+}
 // export  const actSearchPosition = (position) => {
 //     return {
 //         type : Types.SEARCH_POSITION,

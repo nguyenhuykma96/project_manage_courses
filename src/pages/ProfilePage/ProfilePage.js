@@ -176,7 +176,7 @@ const mapStateToProps = state => {
         userProfile: state.getProfileUser
     }
 }
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         getProfile: (taiKhoan) => {
             dispatch(actGetInfoUserRequest(taiKhoan));

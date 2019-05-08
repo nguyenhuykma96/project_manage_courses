@@ -4,11 +4,8 @@ let initialState = {};
 const loginUserReducer = (state = initialState, action) => {
     switch(action.type){
         case Types.LOGIN :
-            state = action.user;
-            console.log(state);
-            
+            state = action.user;      
             return {...state};
-
         default : return {...state};
     }
 }

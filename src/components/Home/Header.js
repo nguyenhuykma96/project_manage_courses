@@ -78,7 +78,7 @@ class Header extends Component {
                                     {/* Search Button */}
                                     <Search />
                                     {/* Register / Login */}
-                                    { (isLogined || sessionStorage.getItem('UserLogin')) ?  <UserCheckined/> : <BtnAuth/>}
+                                    { (isLogined || localStorage.getItem('UserLogin')) ?  <UserCheckined/> : <BtnAuth/>}
                                     {/* Nav End */}
                                 </div>
                                 {/* Nav End */}

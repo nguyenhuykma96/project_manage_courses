@@ -10,12 +10,12 @@ class AdminPage extends Component {
             <Fragment>
                 {/* Page Wrapper */}
                 <div id="wrapper">
-                    <SidebarAdmin/>
+                    <SidebarAdmin />
                     {/* Content Wrapper */}
                     <div id="content-wrapper" className="d-flex flex-column">
                         {/* Main Content */}
                         <div id="content">
-                            <NavbarAdmin/>
+                            <NavbarAdmin />
                             {/* Begin Page Content */}
                             <div className="container-fluid">
                                 {/* Page Heading */}
@@ -199,8 +199,8 @@ class AdminPage extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
-                                   </div>
+                                    </div>
+                                </div>
                             </div>
                             {/* /.container-fluid */}
                         </div>

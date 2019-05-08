@@ -7,7 +7,7 @@ class CourseItem extends Component {
         return (
             <div className="col-12 col-md-6 col-lg-4">
                 <div className="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
-                    <img src={course.HinhAnh} style={{height:'250px'}} />
+                    <img src={course.HinhAnh} style={{height:'250px'}} alt={course.TenKhoaHoc} />
                     {/* Course Content */}
                     <div className="course-content">
                         <h4>{course.TenKhoaHoc}</h4>

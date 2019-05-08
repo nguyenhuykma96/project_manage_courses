@@ -9,14 +9,15 @@ import ProfileContainer from './containers/Profile/Profile';
 import AdminPage from './pages/AdminPage/AdminPage';
 import AdminUserPage from './pages/AdminUserPage/AdminUserPage';
 import AdminCoursePage from './pages/AdminCoursesPage/AdminCoursePage';
+import Auth from './components/Home/Auth/auth';
 
 
 const routes = (
     <Router>
         <Switch>
-            <RouteNormal path="/admin" exact component={AdminPage} layout={LayoutAdmin} />
-            <RouteNormal path="/admin/user" component={AdminUserPage} layout={LayoutAdmin} />
-            <RouteNormal path="/admin/course" component={AdminCoursePage} layout={LayoutAdmin} />
+            <Auth path="/admin" exact component={AdminPage} layout={LayoutAdmin} />
+            <Auth path="/admin/user" component={AdminUserPage} layout={LayoutAdmin} />
+            <Auth path="/admin/course" component={AdminCoursePage} layout={LayoutAdmin} />
             <RouteNormal path="/login"  component={LoginPage} layout={LayoutLogin} />
             <RouteNormal path="/register" component={RegisterPage} layout={LayoutRegister}/>
             <RouteNormal path="/profile" component={ProfileContainer} layout={LayoutProfile}/>

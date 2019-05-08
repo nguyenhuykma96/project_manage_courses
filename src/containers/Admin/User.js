@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actGetAllUsersRequest, actChangeEditStatus } from '../../store/action/user.action';
 import UserItem from '../../components/Admin/UserItem';
-import './User.css'
+import './User.css';
 import { actFilterUser } from '../../store/action/filter.action';
 
 class UserContainer extends Component {
@@ -40,14 +40,14 @@ class UserContainer extends Component {
             if (filterUser.account) {
                 usersList = usersList.filter((user) => {
                     return user.TaiKhoan.toLowerCase().indexOf(filterUser.account) !== -1;
-                })
+                });
             }
             //filter by position
             usersList = usersList.filter((user) => {
                 if (filterUser.position === -1) {
                     return usersList;
                 } else {
-                    return user.MaLoaiNguoiDung === (filterUser.position === 0 ? "HV" : "GV")
+                    return user.MaLoaiNguoiDung === (filterUser.position === 0 ? "HV" : "GV");
                 }
             })
         }
@@ -57,9 +57,6 @@ class UserContainer extends Component {
                 return user.TaiKhoan.toLowerCase().indexOf(keywordSearch.toLowerCase()) !== -1;
             });
         }
-
-
-
         userElm = usersList.map((user, index) => {
             return <UserItem
                 key={index}
@@ -87,11 +84,11 @@ class UserContainer extends Component {
                         data-toggle="modal" data-target="#action_user"
                         onClick={this.onChangeStatusEdit}
                     >
-                        Add User <i class="fas fa-user-plus ml-2"></i>
+                        Add User <i className="fas fa-user-plus ml-2"></i>
                     </button>
                 </div>
                 <div className="card-body">
-                    <div className="table-responsive"> 
+                    <div className="table-responsive">
                         <div className="row">
                             <div className="col-12">
                                 <table className="table" id="dataTable" width="100%" cellSpacing={0} style={{ fontSize: '13px' }}>

@@ -4,8 +4,8 @@ import { actLoginUser } from "./../../store/action/auth.action";
 import { connect } from 'react-redux';
 class UserCheckined extends Component {
     onLogOut = () => {
-        sessionStorage.setItem('UserLogin', '');
-        sessionStorage.clear();
+        localStorage.setItem('UserLogin', '');
+        localStorage.clear();
         this.props.logout({
             TaiKhoan: '',
             MatKhau: '',
@@ -14,9 +14,7 @@ class UserCheckined extends Component {
     }
 
     render() {
-        if(sessionStorage.getItem('UserLogin')){
-            var user = JSON.parse(sessionStorage.getItem('UserLogin'));
-        }
+        var user = JSON.parse(localStorage.getItem('UserLogin'));
         return (
             <Fragment>
                 <div className="login-state d-flex align-items-center" >
@@ -26,17 +24,16 @@ class UserCheckined extends Component {
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{user ? user.TaiKhoan : ""}
                             </a>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userName">
-                                <Link to="/profile" className="dropdown-item" >Profile</Link>
+                                <Link to="/profile" className="dropdown-item" >{user.MaLoaiNguoiDung === 'HV' ? 'Profile' : ''}</Link>
+                                <Link to="/admin" className="dropdown-item">{user.MaLoaiNguoiDung === 'GV' ? 'Manage' : ''}</Link>
                                 <Link to="/" className="dropdown-item" onClick={this.onLogOut}>Logout</Link>
                             </div>
                         </div>
                     </div>
                     <div className="userthumb">
-                        <img src="img/bg-img/t1.png" alt="user login" />
+                        <img src="./../img/bg-img/t1.png" alt="user login" />
                     </div>
-                </div >
-                {/* <Profile /> */}
-                
+                </div>
             </Fragment>
         )
     }
@@ -46,7 +43,7 @@ class UserCheckined extends Component {
 
 const mapStateToProps = state => {
     return {
-        UserLogin: state.loginUser
+        // UserLogin: state.loginUser
     }
 }
 

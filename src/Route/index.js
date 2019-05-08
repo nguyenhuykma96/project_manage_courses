@@ -8,9 +8,7 @@ const RouteNormal = ({
 }) => {
     if (!Layout) {
         return (
-            <Route render={ (props) => <Component {...props} />} {...props}  />
-                
-            
+            <Route render={ (props) => <Component {...props} />} {...props}  />  
         )}
     return (
         <Layout>

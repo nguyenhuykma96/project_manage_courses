@@ -1,9 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {Redirect} from 'react-router-dom';
 import Header from './../components/Home/Header';
-import Swal from 'sweetalert2'
-import SidebarAdmin from '../components/Admin/Sidebar';
-
 
 export default class LayoutHome extends Component {
     
@@ -54,9 +50,7 @@ export class LayoutLogin extends Component {
 };
 export class LayoutRegister extends Component {
     render() {
-        
-        const Component = this.props.children;
-        
+        const Component = this.props.children;     
         return (
             <Fragment>
                 {Component}

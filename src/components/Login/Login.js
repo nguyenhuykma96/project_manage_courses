@@ -66,7 +66,7 @@ class Login extends Component {
         // } else {
         //     console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
         // }
-        if(!this.state.isLogined){
+        if (!this.state.isLogined) {
             this.setState({
                 isLogined: true
             });
@@ -91,16 +91,17 @@ class Login extends Component {
     render() {
 
         if (this.state.isLogined) {
+            console.log("ok");
             return <Redirect to="/" />
         }
-        if (sessionStorage.getItem('UserLogin')) {
+        if (localStorage.getItem('UserLogin')) {
+            console.log("huy");
             return <Redirect to="/" />
         }
         var { TaiKhoan, MatKhau, formErrors } = this.state;
         return (
             <Fragment>
                 {/* Validation */}
-
                 <section className="login-block">
                     <div className="container container-login">
                         <div className="row">
@@ -142,10 +143,10 @@ class Login extends Component {
                                             <input type="checkbox" className="form-check-input" />
                                             <small>Remember Me</small>
                                         </label>
-                                        <button 
-                                            type="submit" 
+                                        <button
+                                            type="submit"
                                             disabled=
-                                                {formErrors.TaiKhoan !== '' || formErrors.MatKhau !== '' || TaiKhoan === '' || MatKhau === ''}
+                                            {formErrors.TaiKhoan !== '' || formErrors.MatKhau !== '' || TaiKhoan === '' || MatKhau === ''}
                                             className="btn btn-login float-right"
                                         >Login
                                         </button>
@@ -200,13 +201,11 @@ class Login extends Component {
     }
 }
 const mapStateToProps = state => {
-    console.log(state);
-    
     return {
-        
+
     }
 }
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = dispatch => {
     return {
         onLogin: user => {
             dispatch(actLoginUserRequest(user));
